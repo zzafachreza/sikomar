@@ -58,10 +58,11 @@ export default function GetStarted({navigation}) {
           source={require('../../assets/logo.png')}
           style={{
             bottom: bottom,
-            height: 160 / 2.5,
-            width: 620 / 2.5,
+            height: 196 / 2.5,
+            width: 621 / 2.5,
           }}
         />
+
         <Animated.Image
           source={require('../../assets/logo2.png')}
           style={{
@@ -77,6 +78,7 @@ export default function GetStarted({navigation}) {
         warna={colors.primary}
         onPress={() => navigation.navigate('Login')}
       />
+
       <MyGap jarak={20} />
       <MyButton
         title="DAFTAR"

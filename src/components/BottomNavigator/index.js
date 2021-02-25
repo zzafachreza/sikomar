@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {Icon} from 'react-native-elements';
+import {colors} from '../../utils/colors';
 
 export default function BottomNavigator({state, descriptors, navigation}) {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -45,12 +46,6 @@ export default function BottomNavigator({state, descriptors, navigation}) {
 
         if (label === 'Home') {
           iconName = 'home';
-        } else if (label === 'Category') {
-          iconName = 'cubes';
-        } else if (label === 'Cart') {
-          iconName = 'shopping-cart';
-        } else if (label === 'WishList') {
-          iconName = 'heart';
         } else if (label === 'Account') {
           iconName = 'user';
         }
@@ -67,7 +62,7 @@ export default function BottomNavigator({state, descriptors, navigation}) {
             style={{flex: 1}}>
             <View
               style={{
-                color: isFocused ? 'red' : '#919095',
+                color: isFocused ? colors.primary : '#919095',
                 backgroundColor: isFocused ? 'white' : '#FFFFFF',
                 paddingTop: 5,
                 paddingBottom: 0,
@@ -105,7 +100,7 @@ export default function BottomNavigator({state, descriptors, navigation}) {
                   <Icon
                     name={iconName}
                     type="font-awesome"
-                    color={isFocused ? 'red' : '#919095'}
+                    color={isFocused ? colors.primary : '#919095'}
                   />
                 )}
                 <Text
@@ -116,7 +111,7 @@ export default function BottomNavigator({state, descriptors, navigation}) {
                         : !isFocused && iconName == 'barcode'
                         ? 'white'
                         : isFocused
-                        ? 'red'
+                        ? colors.primary
                         : '#919095',
                   }}>
                   {label}

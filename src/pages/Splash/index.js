@@ -11,12 +11,16 @@ import {
 } from 'react-native';
 import {colors} from '../../utils/colors';
 import {fonts} from '../../utils/fonts';
+import {color} from 'react-native-reanimated';
 
 export default function Splash({navigation}) {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
 
   const bottom = new Animated.Value(windowWidth);
+  const opacity = new Animated.Value(0);
+  const bottomImage = new Animated.Value(-windowWidth);
+  const bottomSun = new Animated.Value(-windowWidth);
 
   Animated.timing(bottom, {
     toValue: 0,
@@ -24,10 +28,28 @@ export default function Splash({navigation}) {
     useNativeDriver: false,
   }).start();
 
+  Animated.timing(opacity, {
+    toValue: 1,
+    duration: 2000,
+    useNativeDriver: false,
+  }).start();
+
+  Animated.timing(bottomImage, {
+    toValue: 0,
+    duration: 1300,
+    useNativeDriver: false,
+  }).start();
+
+  Animated.timing(bottomSun, {
+    toValue: 0,
+    duration: 1300,
+    useNativeDriver: false,
+  }).start();
+
   useEffect(() => {
     setTimeout(() => {
       navigation.replace('GetStarted');
-    }, 1500);
+    }, 2000);
   });
   return (
     <SafeAreaView style={styles.page}>
@@ -38,32 +60,47 @@ export default function Splash({navigation}) {
           padding: 30,
         }}>
         <Animated.Image
-          source={require('../../assets/logoputih.png')}
+          source={require('../../assets/logooren.png')}
           style={{
             bottom: bottom,
-            height: 160 / 2.5,
-            width: 620 / 2.5,
+            height: 196 / 2.5,
+            width: 621 / 2.5,
           }}
         />
-        <Text
+        <Animated.Text
           style={{
             marginTop: 20,
             fontFamily: fonts.secondary[400],
             fontSize: 22,
-            color: colors.white,
+            color: colors.primary,
+            opacity: opacity,
           }}>
           Aplikasi Untuk Memudahkan Anda Dalam Mencari Informasi Seputar
           Pariwisata di Jawa Barat
-        </Text>
+        </Animated.Text>
+        <Animated.View
+          style={{
+            width: 80,
+            borderRadius: 80 / 2,
+            left: bottomSun,
+            bottom: bottomImage,
+            margin: 10,
+            height: 80,
+            backgroundColor: colors.secondary,
+          }}
+        />
       </View>
+
       <View
         style={{
           paddingHorizontal: 20,
         }}>
-        <Image
+        <Animated.Image
           resizeMode="contain"
           source={require('../../assets/building.png')}
-          style={styles.image}
+          style={{
+            marginBottom: bottomImage,
+          }}
         />
       </View>
     </SafeAreaView>
@@ -72,7 +109,7 @@ export default function Splash({navigation}) {
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: colors.primary,
+    // backgroundColor: colors.primary,
     flex: 1,
   },
   image: {
