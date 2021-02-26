@@ -12,6 +12,7 @@ import {
 import {colors} from '../../utils/colors';
 import {fonts} from '../../utils/fonts';
 import {color} from 'react-native-reanimated';
+import {getData} from '../../utils/localStorage';
 
 export default function Splash({navigation}) {
   const windowWidth = Dimensions.get('window').width;
@@ -47,10 +48,23 @@ export default function Splash({navigation}) {
   }).start();
 
   useEffect(() => {
-    setTimeout(() => {
-      navigation.replace('GetStarted');
-    }, 2000);
-  });
+    const unsubscribe = getData('user').then((res) => {
+      console.log(res);
+      if (!res) {
+        // console.log('beum login');
+
+        setTimeout(() => {
+          navigation.replace('GetStarted');
+        }, 2000);
+      } else {
+        // console.log('sudah login logon');
+
+        setTimeout(() => {
+          navigation.replace('MainApp');
+        }, 2000);
+      }
+    });
+  }, []);
   return (
     <SafeAreaView style={styles.page}>
       <View
@@ -76,7 +90,7 @@ export default function Splash({navigation}) {
             opacity: opacity,
           }}>
           Aplikasi Untuk Memudahkan Anda Dalam Mencari Informasi Seputar
-          Pariwisata di Jawa Barat
+          Industri Pariwisata di Jawa Barat
         </Animated.Text>
         <Animated.View
           style={{

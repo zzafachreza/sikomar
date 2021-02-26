@@ -8,7 +8,15 @@ import {
   View,
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Splash, GetStarted, Login, Register, Home, Account} from '../pages';
+import {
+  Splash,
+  GetStarted,
+  Login,
+  Register,
+  Home,
+  Account,
+  Success,
+} from '../pages';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigator} from '../components';
 import {colors} from '../utils/colors';
@@ -38,6 +46,13 @@ export default function Router() {
       <Stack.Screen
         name="GetStarted"
         component={GetStarted}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Success"
+        component={Success}
         options={{
           headerShown: false,
         }}

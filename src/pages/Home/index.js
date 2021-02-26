@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -11,25 +11,18 @@ import Carousel from 'react-native-snap-carousel';
 import {colors} from '../../utils/colors';
 import {fonts} from '../../utils/fonts';
 import LottieView from 'lottie-react-native';
+import {getData} from '../../utils/localStorage';
 
 export default function Home() {
-  const [data, setData] = useState([
-    {
-      id: 0,
-      image:
-        'https://media-cdn.tripadvisor.com/media/photo-s/17/ca/76/1e/frontage.jpg',
-    },
-    {
-      id: 1,
-      image:
-        'https://www.pegipegi.com/travel/wp-content/uploads/2018/04/shutterstock_663777415.jpg',
-    },
-    {
-      id: 2,
-      image:
-        'https://blog.reservasi.com/wp-content/uploads/2018/08/wisata-alam-di-jawa-barat.jpg',
-    },
-  ]);
+  const [data, setData] = useState([]);
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    getData('user').then((res) => {
+      console.log(res);
+      setUser(res);
+    });
+  }, []);
 
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
@@ -86,7 +79,7 @@ export default function Home() {
                 maxWidth: '80%',
                 color: 'white',
               }}>
-              Fachreza Maulana
+              {user.nama_lengkap}
             </Text>
           </View>
           <View
