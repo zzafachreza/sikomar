@@ -6,6 +6,7 @@ import {
   ImageBackground,
   SafeAreaView,
   Image,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import {colors} from '../../utils/colors';
@@ -13,7 +14,7 @@ import {fonts} from '../../utils/fonts';
 import LottieView from 'lottie-react-native';
 import {getData} from '../../utils/localStorage';
 
-export default function Home() {
+export default function Home({navigation}) {
   const [data, setData] = useState([]);
   const [user, setUser] = useState([]);
 
@@ -34,9 +35,7 @@ export default function Home() {
         style={{
           width: windowWidth,
           height: Math.round((windowWidth * 9) / 16),
-        }}>
-        {/* <Text style={{fontSize: 30}}>{item.id}</Text> */}
-      </ImageBackground>
+        }}></ImageBackground>
     );
   };
   return (
@@ -107,124 +106,153 @@ export default function Home() {
           alignItems: 'center',
         }}>
         <View style={{flexDirection: 'row'}}>
-          <View
-            style={{
-              flex: 1,
-              height: 200,
-              backgroundColor: 'white',
-              borderWidth: 2,
-              borderColor: colors.secondary,
-              elevation: 5,
-              borderRadius: 10,
-              margin: 5,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <LottieView
-              source={require('../../assets/kreatif.json')}
-              autoPlay
-              loop
-            />
-            <Text
+          <TouchableWithoutFeedback
+            onPress={() =>
+              navigation.navigate('Menu1', {
+                menuUtama: 'INDUSTRI KREATIF',
+              })
+            }>
+            <View
               style={{
-                position: 'absolute',
-                bottom: 0,
-                fontSize: 18,
-                fontFamily: fonts.secondary[600],
-                color: colors.primary,
+                flex: 1,
+                height: 200,
+                backgroundColor: 'white',
+                borderWidth: 2,
+                borderColor: colors.secondary,
+                elevation: 5,
+                borderRadius: 10,
+                margin: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
-              INDUSTRI KREATIF
-            </Text>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              height: 200,
-              backgroundColor: 'white',
-              borderWidth: 2,
-              borderColor: colors.secondary,
-              elevation: 5,
-              borderRadius: 10,
-              margin: 5,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <LottieView
-              source={require('../../assets/maps.json')}
-              autoPlay
-              loop
-            />
-            <Text
+              <LottieView
+                source={require('../../assets/kreatif.json')}
+                autoPlay
+                loop
+              />
+              <Text
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  fontSize: 18,
+                  fontFamily: fonts.secondary[600],
+                  color: colors.primary,
+                }}>
+                INDUSTRI KREATIF
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() =>
+              navigation.navigate('Menu1', {
+                menuUtama: 'INFO WISATA',
+              })
+            }>
+            <View
               style={{
-                position: 'absolute',
-                bottom: 0,
-                fontSize: 18,
-                fontFamily: fonts.secondary[600],
-                color: colors.primary,
+                flex: 1,
+                height: 200,
+                backgroundColor: 'white',
+                borderWidth: 2,
+                borderColor: colors.secondary,
+                elevation: 5,
+                borderRadius: 10,
+                margin: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
-              INFO WISATA
-            </Text>
-          </View>
+              <LottieView
+                source={require('../../assets/maps.json')}
+                autoPlay
+                loop
+              />
+              <Text
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  fontSize: 18,
+                  fontFamily: fonts.secondary[600],
+                  color: colors.primary,
+                }}>
+                INFO WISATA
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
         </View>
+
         <View style={{flexDirection: 'row'}}>
-          <View
-            style={{
-              flex: 1,
-              height: 200,
-              backgroundColor: 'white',
-              borderWidth: 2,
-              borderColor: colors.secondary,
-              elevation: 5,
-              borderRadius: 10,
-              margin: 5,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <LottieView
-              source={require('../../assets/partner.json')}
-              autoPlay
-              loop
-            />
-            <Text
+          <TouchableWithoutFeedback
+            onPress={() =>
+              navigation.navigate('Menu1', {
+                menuUtama: 'KEMITRAAN',
+              })
+            }>
+            <View
               style={{
-                position: 'absolute',
-                bottom: 0,
-                fontSize: 18,
-                fontFamily: fonts.secondary[600],
-                color: colors.primary,
+                flex: 1,
+                height: 200,
+                backgroundColor: 'white',
+                borderWidth: 2,
+                borderColor: colors.secondary,
+                elevation: 5,
+                borderRadius: 10,
+                margin: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
-              KEMITRAAN
-            </Text>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              height: 200,
-              backgroundColor: 'white',
-              borderWidth: 2,
-              borderColor: colors.secondary,
-              elevation: 5,
-              margin: 5,
-              borderRadius: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <LottieView
-              source={require('../../assets/boarding.json')}
-              autoPlay
-              loop
-            />
-            <Text
+              <LottieView
+                source={require('../../assets/partner.json')}
+                autoPlay
+                loop
+              />
+              <Text
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  fontSize: 18,
+                  fontFamily: fonts.secondary[600],
+                  color: colors.primary,
+                }}>
+                KEMITRAAN
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() =>
+              navigation.navigate('Menu1', {
+                menuUtama: 'USAHA PARIWISATA',
+              })
+            }>
+            <View
               style={{
-                position: 'absolute',
-                bottom: 0,
-                fontSize: 18,
-                fontFamily: fonts.secondary[600],
-                color: colors.primary,
+                flex: 1,
+                height: 200,
+                backgroundColor: 'white',
+                borderWidth: 2,
+                borderColor: colors.secondary,
+                elevation: 5,
+                margin: 5,
+                borderRadius: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
-              USAHA PARIWISATA
-            </Text>
-          </View>
+              <LottieView
+                source={require('../../assets/boarding.json')}
+                autoPlay
+                loop
+              />
+              <Text
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  fontSize: 18,
+                  fontFamily: fonts.secondary[600],
+                  color: colors.primary,
+                }}>
+                USAHA PARIWISATA
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
         </View>
       </View>
     </SafeAreaView>
