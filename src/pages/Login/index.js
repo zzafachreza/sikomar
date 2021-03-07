@@ -6,6 +6,7 @@ import {MyInput, MyGap, MyButton} from '../../components';
 import LottieView from 'lottie-react-native';
 import axios from 'axios';
 import {storeData} from '../../utils/localStorage';
+import {showMessage} from 'react-native-flash-message';
 
 export default function Login({navigation}) {
   const [loading, setLoading] = useState(false);
@@ -19,10 +20,17 @@ export default function Login({navigation}) {
     console.log(data);
     setTimeout(() => {
       axios.post('https://sikomarjabar.com/api/login.php', data).then((res) => {
-        console.log(res);
+        console.log(res.data);
         setLoading(false);
-        storeData('user', res.data);
-        navigation.replace('MainApp');
+        if (res.data.kode == 50) {
+          showMessage({
+            type: 'danger',
+            message: res.data.msg,
+          });
+        } else {
+          storeData('user', res.data);
+          navigation.replace('MainApp');
+        }
       });
     }, 1200);
   };
