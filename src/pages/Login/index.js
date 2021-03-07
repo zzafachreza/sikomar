@@ -15,6 +15,7 @@ export default function Login({navigation}) {
     password: null,
   });
 
+  // login ok
   const masuk = () => {
     setLoading(true);
     console.log(data);
