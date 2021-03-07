@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {colors} from '../../utils/colors';
 import axios from 'axios';
 
@@ -37,16 +44,32 @@ export default function Menu2({navigation, route}) {
             borderColor: colors.secondary,
             height: 100,
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
+            flexDirection: 'row',
           }}>
-          <Text
+          <Image
+            source={{uri: item.image}}
             style={{
-              fontSize: 16,
-              color: colors.primary,
-              textAlign: 'center',
+              width: 80,
+              height: 80,
+            }}
+          />
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+              paddingLeft: 20,
             }}>
-            {item.menu}
-          </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                color: colors.primary,
+                textAlign: 'center',
+              }}>
+              {item.menu}
+            </Text>
+          </View>
         </View>
       </TouchableOpacity>
     );
