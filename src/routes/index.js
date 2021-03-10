@@ -20,6 +20,7 @@ import {
   Menu2,
   Menu3,
   Content,
+  Ekraf,
 } from '../pages';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigator} from '../components';
@@ -207,6 +208,33 @@ export default function Router() {
         component={Content}
         options={({route, navigation}) => ({
           title: 'Content',
+          headerTintColor: 'white',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          cardStyleInterpolator: ({current, layouts}) => {
+            return {
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            };
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name="Ekraf"
+        component={Ekraf}
+        options={({route, navigation}) => ({
+          title: 'Ekraf',
           headerTintColor: 'white',
           headerStyle: {
             backgroundColor: colors.primary,

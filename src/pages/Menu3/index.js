@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {colors} from '../../utils/colors';
 import axios from 'axios';
+import {fonts} from '../../utils/fonts';
 
 export default function Menu3({navigation, route}) {
   const utama = route.params.utama;
@@ -77,10 +78,46 @@ export default function Menu3({navigation, route}) {
 
   return (
     <View
-      style={{
-        padding: 10,
-      }}>
-      <FlatList data={data} renderItem={MenuList} />
+      style={
+        {
+          // padding: 10,
+        }
+      }>
+      <View
+        style={{
+          backgroundColor: colors.primary,
+          height: 100,
+          padding: 20,
+        }}>
+        <View
+          style={{
+            flexDirection: 'row',
+          }}>
+          <Text
+            style={{
+              fontFamily: fonts.secondary[600],
+              fontSize: 20,
+              maxWidth: '60%',
+              color: colors.white,
+            }}>
+            Data dan Informasi Industri Pariwisata Jawa Barat
+          </Text>
+
+          <Image
+            source={require('../../assets/logooren.png')}
+            style={{
+              width: 621 / 4,
+              height: 196 / 4,
+            }}
+          />
+        </View>
+      </View>
+      <View
+        style={{
+          padding: 10,
+        }}>
+        <FlatList data={data} renderItem={MenuList} />
+      </View>
     </View>
   );
 }

@@ -10,6 +10,7 @@ import Menu2 from './Menu2';
 import Menu3 from './Menu3';
 
 import Content from './Content';
+import Ekraf from './Ekraf';
 
 export {
   Splash,
@@ -23,4 +24,5 @@ export {
   Menu2,
   Menu3,
   Content,
+  Ekraf,
 };
