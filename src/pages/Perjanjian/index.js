@@ -16,14 +16,14 @@ import {MyInput} from '../../components';
 import axios from 'axios';
 import {color} from 'react-native-reanimated';
 
-export default function Ekraf({navigation, route}) {
+export default function Perjanjian({navigation, route}) {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
   const [data, setData] = useState([]);
   const [key, setKey] = useState('');
 
   const getData = () => {
-    axios.get('https://sikomarjabar.com/api/ekraf.php').then((res) => {
+    axios.get('https://sikomarjabar.com/api/perjanjian.php').then((res) => {
       console.log(res.data);
       setData(res.data);
     });
@@ -31,7 +31,7 @@ export default function Ekraf({navigation, route}) {
 
   const searchData = () => {
     axios
-      .post('https://sikomarjabar.com/api/ekraf.php', {
+      .post('https://sikomarjabar.com/api/perjanjian.php', {
         key: key,
       })
       .then((res) => {
@@ -46,7 +46,8 @@ export default function Ekraf({navigation, route}) {
 
   const _renderItem = ({item}) => {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('PerjanjianDetail', item)}>
         <View
           style={{
             shadowColor: 'white',
@@ -75,13 +76,6 @@ export default function Ekraf({navigation, route}) {
               flex: 1,
               flexDirection: 'row',
             }}>
-            <Image
-              source={{uri: item.image}}
-              style={{
-                width: 100,
-                height: 100,
-              }}
-            />
             <View
               style={{
                 // flex: 1,
@@ -95,32 +89,6 @@ export default function Ekraf({navigation, route}) {
                 }}>
                 {item.nama}
               </Text>
-              <Text
-                style={{
-                  fontSize: 12,
-                  fontFamily: fonts.secondary[600],
-                  color: colors.border,
-                  maxWidth: '100%',
-                }}>
-                {item.produk} {item.merek}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 10,
-                  color: colors.black,
-                  fontFamily: fonts.secondary[400],
-                  maxWidth: '80%',
-                }}>
-                {item.alamat}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 10,
-                  color: colors.secondary,
-                  maxWidth: '100%',
-                }}>
-                {item.telepon}
-              </Text>
             </View>
           </View>
           <View
@@ -129,7 +97,7 @@ export default function Ekraf({navigation, route}) {
               right: 0,
               position: 'absolute',
               width: 100,
-              backgroundColor: colors.secondary,
+              backgroundColor: colors.danger,
               borderTopLeftRadius: 10,
               padding: 5,
               justifyContent: 'center',
@@ -142,7 +110,7 @@ export default function Ekraf({navigation, route}) {
                 fontFamily: fonts.secondary[600],
                 maxWidth: '100%',
               }}>
-              {item.kategori}
+              PDF
             </Text>
           </View>
         </View>
@@ -189,7 +157,7 @@ export default function Ekraf({navigation, route}) {
           padding: 10,
         }}>
         <TextInput
-          placeholder="Pencarian data ekraf"
+          placeholder="Pencarian sertfikat"
           style={{
             fontFamily: fonts.secondary[400],
             fontSize: 12,

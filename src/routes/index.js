@@ -21,6 +21,9 @@ import {
   Menu3,
   Content,
   Ekraf,
+  Perjanjian,
+  PerjanjianDetail,
+  Kawasan,
 } from '../pages';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigator} from '../components';
@@ -234,7 +237,88 @@ export default function Router() {
         name="Ekraf"
         component={Ekraf}
         options={({route, navigation}) => ({
-          title: 'Ekraf',
+          title: 'PELAKU EKRAF',
+          headerTintColor: 'white',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          cardStyleInterpolator: ({current, layouts}) => {
+            return {
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            };
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name="Perjanjian"
+        component={Perjanjian}
+        options={({route, navigation}) => ({
+          title: 'PERJANJIAN KERJASAMA',
+          headerTintColor: 'white',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          cardStyleInterpolator: ({current, layouts}) => {
+            return {
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            };
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name="PerjanjianDetail"
+        component={PerjanjianDetail}
+        options={({route, navigation}) => ({
+          title: 'PERJANJIAN KERJASAMA DETAIL',
+          headerTintColor: 'white',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          cardStyleInterpolator: ({current, layouts}) => {
+            return {
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            };
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name="Kawasan"
+        component={Kawasan}
+        options={({route, navigation}) => ({
+          title: 'KAWASAN PARIWISATA',
           headerTintColor: 'white',
           headerStyle: {
             backgroundColor: colors.primary,

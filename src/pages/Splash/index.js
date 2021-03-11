@@ -47,7 +47,18 @@ export default function Splash({navigation}) {
     useNativeDriver: false,
   }).start();
 
+  const requestLocationPermission = async () => {
+    if (Platform.OS === 'ios') {
+      var response = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
+      console.log('iPhone: ' + response);
+    } else {
+      var response = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+      console.log('Android: ' + response);
+    }
+  };
+
   useEffect(() => {
+    requestLocationPermission();
     const unsubscribe = getData('user').then((res) => {
       console.log(res);
       if (!res) {

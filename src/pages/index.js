@@ -11,6 +11,9 @@ import Menu3 from './Menu3';
 
 import Content from './Content';
 import Ekraf from './Ekraf';
+import Perjanjian from './Perjanjian';
+import PerjanjianDetail from './PerjanjianDetail';
+import Kawasan from './Kawasan';
 
 export {
   Splash,
@@ -25,4 +28,7 @@ export {
   Menu3,
   Content,
   Ekraf,
+  Perjanjian,
+  PerjanjianDetail,
+  Kawasan,
 };

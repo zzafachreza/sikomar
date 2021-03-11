@@ -31,6 +31,10 @@ export default function Menu1({navigation, route}) {
     let tujuan = '';
     if (item.menu == 'PELAKU EKRAF') {
       tujuan = 'Ekraf';
+    } else if (item.menu == 'PERJANJIAN KERJASAMA') {
+      tujuan = 'Perjanjian';
+    } else if (item.menu == 'KAWASAN PARIWISATA') {
+      tujuan = 'Kawasan';
     } else {
       tujuan = 'Menu2';
     }
