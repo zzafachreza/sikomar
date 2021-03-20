@@ -24,6 +24,9 @@ import {
   Perjanjian,
   PerjanjianDetail,
   Kawasan,
+  Berita,
+  Usaha,
+  Dokumentasi,
 } from '../pages';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigator} from '../components';
@@ -319,6 +322,87 @@ export default function Router() {
         component={Kawasan}
         options={({route, navigation}) => ({
           title: 'KAWASAN PARIWISATA',
+          headerTintColor: 'white',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          cardStyleInterpolator: ({current, layouts}) => {
+            return {
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            };
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name="Berita"
+        component={Berita}
+        options={({route, navigation}) => ({
+          title: 'REKOMENDASI WISATA',
+          headerTintColor: 'white',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          cardStyleInterpolator: ({current, layouts}) => {
+            return {
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            };
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name="Usaha"
+        component={Usaha}
+        options={({route, navigation}) => ({
+          title: 'USAHA PARIWISTA',
+          headerTintColor: 'white',
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          cardStyleInterpolator: ({current, layouts}) => {
+            return {
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            };
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name="Dokumentasi"
+        component={Dokumentasi}
+        options={({route, navigation}) => ({
+          title: 'DOKUMENTASI KEGIATAN',
           headerTintColor: 'white',
           headerStyle: {
             backgroundColor: colors.primary,

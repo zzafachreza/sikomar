@@ -22,8 +22,10 @@ import {request, PERMISSIONS} from 'react-native-permissions';
 import Geolocation from '@react-native-community/geolocation';
 import Carousel from 'react-native-snap-carousel';
 import axios from 'axios';
+import {useNavigation} from '@react-navigation/native';
 
 export default function Kawasan() {
+  const navigation = useNavigation();
   let _map = null;
   let _carousel = null;
   const [currentLocation, setcurrentLocation] = useState({});
@@ -108,13 +110,18 @@ export default function Kawasan() {
               style={{height: 20, width: 25}}
             />
             <Callout
+              onPress={() =>
+                navigation.navigate('Usaha', {
+                  lokasi: marker.nama,
+                })
+              }
               style={{flex: 1, position: 'absolute', width: 150, height: 80}}>
               <View>
                 <View>
                   <Text
                     style={{
                       fontFamily: 'Montserrat-SemiBold',
-                      fontSize: 20,
+                      fontSize: 18,
                     }}>
                     {marker.nama}
                   </Text>

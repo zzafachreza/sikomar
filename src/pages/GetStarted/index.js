@@ -58,8 +58,8 @@ export default function GetStarted({navigation}) {
           source={require('../../assets/logo.png')}
           style={{
             bottom: bottom,
-            height: 196 / 2.5,
-            width: 621 / 2.5,
+            height: 196 / 3,
+            width: 621 / 3,
           }}
         />
 

@@ -14,6 +14,9 @@ import Ekraf from './Ekraf';
 import Perjanjian from './Perjanjian';
 import PerjanjianDetail from './PerjanjianDetail';
 import Kawasan from './Kawasan';
+import Berita from './Berita';
+import Usaha from './Usaha';
+import Dokumentasi from './Dokumentasi';
 
 export {
   Splash,
@@ -31,4 +34,7 @@ export {
   Perjanjian,
   PerjanjianDetail,
   Kawasan,
+  Berita,
+  Dokumentasi,
+  Usaha,
 };

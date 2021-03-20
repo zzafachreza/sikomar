@@ -15,6 +15,7 @@ import {colors} from '../../utils/colors';
 import {MyInput} from '../../components';
 import axios from 'axios';
 import {color} from 'react-native-reanimated';
+import MyHeader from '../../components/MyHeader';
 
 export default function Ekraf({navigation, route}) {
   const windowWidth = Dimensions.get('window').width;
@@ -155,35 +156,7 @@ export default function Ekraf({navigation, route}) {
       style={{
         backgroundColor: '#F3F1F3',
       }}>
-      <View
-        style={{
-          backgroundColor: colors.primary,
-          height: 100,
-          padding: 20,
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-          }}>
-          <Text
-            style={{
-              fontFamily: fonts.secondary[600],
-              fontSize: 20,
-              maxWidth: '60%',
-              color: colors.white,
-            }}>
-            Data dan Informasi Industri Pariwisata Jawa Barat
-          </Text>
-
-          <Image
-            source={require('../../assets/logooren.png')}
-            style={{
-              width: 621 / 4,
-              height: 196 / 4,
-            }}
-          />
-        </View>
-      </View>
+      <MyHeader />
       <View
         style={{
           padding: 10,

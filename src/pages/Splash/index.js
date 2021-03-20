@@ -56,9 +56,9 @@ export default function Splash({navigation}) {
       console.log('Android: ' + response);
     }
   };
+  requestLocationPermission();
 
   useEffect(() => {
-    requestLocationPermission();
     const unsubscribe = getData('user').then((res) => {
       console.log(res);
       if (!res) {
@@ -88,15 +88,15 @@ export default function Splash({navigation}) {
           source={require('../../assets/logooren.png')}
           style={{
             bottom: bottom,
-            height: 196 / 2.5,
-            width: 621 / 2.5,
+            height: 196 / 4,
+            width: 621 / 4,
           }}
         />
         <Animated.Text
           style={{
             marginTop: 20,
             fontFamily: fonts.secondary[400],
-            fontSize: 22,
+            fontSize: windowWidth / 22,
             color: colors.primary,
             opacity: opacity,
           }}>

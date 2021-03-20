@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, Button, View, Image, ScrollView} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  Button,
+  View,
+  Image,
+  ScrollView,
+  Dimensions,
+} from 'react-native';
 import {colors} from '../../utils/colors';
 import {fonts} from '../../utils/fonts';
 import {MyInput, MyGap, MyButton} from '../../components';
@@ -9,6 +17,8 @@ import {storeData} from '../../utils/localStorage';
 import {showMessage} from 'react-native-flash-message';
 
 export default function Login({navigation}) {
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     email: null,
@@ -51,8 +61,8 @@ export default function Login({navigation}) {
             style={{
               marginTop: 20,
               fontFamily: fonts.secondary[400],
-              fontSize: 30,
-              color: colors.secondary,
+              fontSize: windowWidth / 20,
+              color: colors.black,
               // maxWidth: 230,
             }}>
             Silahkan untuk masuk terlebih dahulu, ke Aplikasi Sikomar Jabar
@@ -107,7 +117,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   image: {
-    width: 621 / 2,
-    height: 196 / 2,
+    width: 621 / 4,
+    height: 196 / 4,
   },
 });

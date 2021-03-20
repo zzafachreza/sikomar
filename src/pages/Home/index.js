@@ -17,25 +17,24 @@ import {getData} from '../../utils/localStorage';
 import {FlatListSlider} from 'react-native-flatlist-slider';
 import {Preview} from '../../components';
 import {Icon} from 'react-native-elements';
+import MyNews from '../../components/MyNews';
 
 export default function Home({navigation}) {
   const images = [
     {
-      image: 'https://sikomarjabar.com/admin/upload/210304063058cimaja04.jpg',
+      image:
+        'https://sikomarjabar.com/admin/upload/210320035446210304063349EJP_3248.jpg',
       desc: 'Silent Waters in the mountains in midst of Himilayas',
     },
     {
-      image: 'https://sikomarjabar.com/admin/upload/210304063008ciletuh05.jpg',
+      image:
+        'https://sikomarjabar.com/admin/upload/210320035331210312034824EJP_3892-min.jpg',
       desc:
         'Red fort in India New Delhi is a magnificient masterpeiece of humans',
     },
     {
       image:
-        'https://sikomarjabar.com/admin/upload/210304063021Batu%20Karas%2004.jpg',
-    },
-    {
-      image:
-        'https://sikomarjabar.com/admin/upload/210304062816IMG_2106%20(situ%20patengan).jpg',
+        'https://sikomarjabar.com/admin/upload/210320035918210304063632tebing%20keraton.jpg',
     },
   ];
 
@@ -85,7 +84,7 @@ export default function Home({navigation}) {
         <View
           style={{
             backgroundColor: colors.primary,
-            height: 150,
+            height: windowWidth / 3,
             // borderBottomLeftRadius: 20,
             // borderBottomRightRadius: 20,
             padding: 20,
@@ -94,7 +93,7 @@ export default function Home({navigation}) {
             <Text
               style={{
                 fontFamily: fonts.secondary[600],
-                fontSize: 20,
+                fontSize: windowWidth / 23,
                 maxWidth: '80%',
                 color: colors.white,
               }}>
@@ -114,7 +113,7 @@ export default function Home({navigation}) {
               <Text
                 style={{
                   fontFamily: fonts.secondary[400],
-                  fontSize: 18,
+                  fontSize: windowWidth / 25,
                   maxWidth: '80%',
                   color: 'white',
                 }}>
@@ -124,7 +123,7 @@ export default function Home({navigation}) {
                 style={{
                   marginTop: 2,
                   fontFamily: fonts.secondary[600],
-                  fontSize: 18,
+                  fontSize: windowWidth / 25,
                   maxWidth: '80%',
                   color: 'white',
                 }}>
@@ -140,8 +139,8 @@ export default function Home({navigation}) {
               <Image
                 source={require('../../assets/logooren.png')}
                 style={{
-                  width: 621 / 4,
-                  height: 196 / 4,
+                  width: 621 / 6,
+                  height: 196 / 6,
                 }}
               />
             </View>
@@ -200,7 +199,7 @@ export default function Home({navigation}) {
                 fontFamily: 'Montserrat-SemiBold',
                 color: colors.primary,
                 left: 10,
-                fontSize: 16,
+                fontSize: windowWidth / 28,
               }}>
               KATEGORI
             </Text>
@@ -217,10 +216,10 @@ export default function Home({navigation}) {
                   flex: 1,
                   height: 100,
                   // backgroundColor: 'white',
-                  // // borderWidth: 2,
+                  // borderWidth: 1,
                   // // borderColor: colors.primary,
-                  // elevation: 5,
-                  // borderRadius: 10,
+                  elevation: 1,
+                  borderRadius: 10,
                   margin: 5,
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -234,7 +233,7 @@ export default function Home({navigation}) {
                 />
                 <Text
                   style={{
-                    fontSize: 12,
+                    fontSize: windowWidth / 40,
                     fontFamily: fonts.secondary[600],
                     color: colors.primary,
                     textAlign: 'center',
@@ -259,6 +258,9 @@ export default function Home({navigation}) {
                   // // borderColor: colors.primary,
                   // elevation: 5,
                   // borderRadius: 10,
+
+                  elevation: 1,
+                  borderRadius: 10,
                   margin: 5,
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -273,7 +275,7 @@ export default function Home({navigation}) {
                 />
                 <Text
                   style={{
-                    fontSize: 12,
+                    fontSize: windowWidth / 40,
                     fontFamily: fonts.secondary[600],
                     color: colors.primary,
                     textAlign: 'center',
@@ -299,6 +301,8 @@ export default function Home({navigation}) {
                   // // borderColor: colors.primary,
                   // elevation: 5,
                   // borderRadius: 10,
+                  elevation: 1,
+                  borderRadius: 10,
                   margin: 5,
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -313,7 +317,7 @@ export default function Home({navigation}) {
                 />
                 <Text
                   style={{
-                    fontSize: 12,
+                    fontSize: windowWidth / 40,
                     fontFamily: fonts.secondary[600],
                     color: colors.primary,
                     textAlign: 'center',
@@ -338,6 +342,8 @@ export default function Home({navigation}) {
                   // // borderColor: colors.primary,
                   // elevation: 5,
                   // borderRadius: 10,
+                  elevation: 1,
+                  borderRadius: 10,
                   margin: 5,
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -351,7 +357,7 @@ export default function Home({navigation}) {
                 />
                 <Text
                   style={{
-                    fontSize: 12,
+                    fontSize: windowWidth / 40,
                     fontFamily: fonts.secondary[600],
                     color: colors.primary,
                     textAlign: 'center',
@@ -467,104 +473,7 @@ export default function Home({navigation}) {
               REKOMENDASI WISATA
             </Text>
           </View>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <View
-              style={{
-                flex: 1,
-
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-              }}>
-              <View
-                style={{
-                  // flex: 1,
-                  margin: 10,
-                  width: 200,
-                  height: 200,
-                  borderRadius: 10,
-                  backgroundColor: 'white',
-                  overflow: 'hidden',
-                }}>
-                <Image
-                  resizeMode="contain"
-                  source={{
-                    uri:
-                      'https://www.referensiwisata.com/wp-content/uploads/2019/04/kawah-putih-bandung.jpg',
-                  }}
-                  style={{width: '100%', aspectRatio: 1.5}}
-                />
-                <View style={{padding: 10}}>
-                  <Text
-                    style={{fontSize: 14, fontFamily: fonts.secondary[600]}}>
-                    Kawah Putih
-                  </Text>
-                  <Text
-                    style={{fontSize: 12, fontFamily: fonts.secondary[400]}}>
-                    Wisata yang berasal dari Jawa Barat
-                  </Text>
-                </View>
-              </View>
-              <View
-                style={{
-                  // flex: 1,
-                  margin: 10,
-                  width: 200,
-                  height: 200,
-                  borderRadius: 10,
-                  backgroundColor: 'white',
-                  overflow: 'hidden',
-                }}>
-                <Image
-                  resizeMode="contain"
-                  source={{
-                    uri:
-                      'https://busbluestar.co.id/wp-content/uploads/2018/05/taman-bunga-nusantara.jpg',
-                  }}
-                  style={{width: '100%', aspectRatio: 1.5}}
-                />
-                <View style={{padding: 10}}>
-                  <Text
-                    style={{fontSize: 14, fontFamily: fonts.secondary[600]}}>
-                    Taman Bunga Nusantara
-                  </Text>
-                  <Text
-                    style={{fontSize: 12, fontFamily: fonts.secondary[400]}}>
-                    Wisata yang berasal dari Jawa Barat
-                  </Text>
-                </View>
-              </View>
-
-              <View
-                style={{
-                  // flex: 1,
-                  margin: 10,
-                  width: 200,
-                  height: 200,
-                  borderRadius: 10,
-                  backgroundColor: 'white',
-                  overflow: 'hidden',
-                }}>
-                <Image
-                  resizeMode="contain"
-                  source={{
-                    uri:
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWfni_8MqVPr-Mir5eU5I9HaZ_N1RoTKsOTg&usqp=CAU',
-                  }}
-                  style={{width: '100%', aspectRatio: 1.5}}
-                />
-                <View style={{padding: 10}}>
-                  <Text
-                    style={{fontSize: 14, fontFamily: fonts.secondary[600]}}>
-                    Wisata Tangkuban Parahu
-                  </Text>
-                  <Text
-                    style={{fontSize: 12, fontFamily: fonts.secondary[400]}}>
-                    Wisata yang berasal dari Jawa Barat
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </ScrollView>
+          <MyNews />
         </View>
       </ScrollView>
     </SafeAreaView>
